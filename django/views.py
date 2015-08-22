@@ -7,24 +7,24 @@ def create_waybill(request, id):
         return HttpResponseRedirect("/")
 
 
-def map_reduce_task(reuqest, ids):
-    regusters = get_registers(request)
+def map_reduce_task(request, ids):
+    registers = get_registers(request)
     ids = get_ids(ids)
     if not registers:
         return HttpResponseRedirect("/")
     else:
         for register in registers:
-            if object_ids:  # Using optimized queries:
-                objects = register.objects.filter(id__in=object_ids).values_list("id", flat=True)
+            if ids:  # Using optimized queries:
+                objects = register.objects.filter(id__in=ids).values_list("id", flat=True)
             else:
                 objects = register.objects.all().values_list("id", flat=True)
 
             t = 0
             task_map = []
 
-            def chunks(objects, length):  # Defining method in a loop.
+            def chunks(objects, length):  # Defining method with a generator in a loop.
                 for i in xrange(0, len(objects), length):
-                    yield parcels[i:i+length]
+                    yield objects[i:i+length]
 
             for chunk in chunks(objects, 20):
                 countdown = 5*t

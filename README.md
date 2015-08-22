@@ -16,3 +16,6 @@ Refactor your code to remove as much as you can to leave just the most valuable 
 It is generally a good practice to read through your old files and contribute your own code.
 
 It is still not clear to me, how to structure this project. 
+
+### Keywords
+Pythod bad code examples, Python antipatterns 
