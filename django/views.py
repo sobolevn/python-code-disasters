@@ -89,7 +89,7 @@ def create_payment(request):
 
                     try:
                         default_email = os.environ.get('DJANGO_EMAIL_DEFAULT_EMAIL')
-                        subject = "Cryptoins: You’re one step away from being secured"
+                        subject = "Website: You’re one step away from being secured"
                         message = render_to_string('first_email.html', {'user': policy.user, 'payment': payment})
                         send_mail(subject, message, default_email, [policy.user.email])
                     except Exception as e:
@@ -181,7 +181,7 @@ def create_payment(request):
 
                     try:
                         default_email = os.environ.get('DJANGO_EMAIL_DEFAULT_EMAIL')
-                        subject = "Cryptoins: You’re one step away from being secured"
+                        subject = "Website: You’re one step away from being secured"
                         message = render_to_string('first_email.html', {'user': policy.user, 'payment': payment})
                         send_mail(subject, message, default_email, [policy.user.email])
                     except Exception:
